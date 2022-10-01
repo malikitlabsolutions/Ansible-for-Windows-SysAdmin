@@ -1,0 +1,5 @@
+---
+- name: play 1 
+  Hosts: all
+  Tasks:
+  
