@@ -1,0 +1,12 @@
+---
+- name: ansible win_reboot module demo
+  Hosts: all
+  become: false
+  gather_facts: false
+  Tasks:
+     - name: reboot Windows Host(s)
+       ansible.windows.win_reboot:
+          msg: "reboot by ansible"
+          pre_reboot_delay: 5
+          post_reboot_delay: 10
+  
