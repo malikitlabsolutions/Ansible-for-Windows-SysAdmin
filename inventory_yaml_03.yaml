@@ -1,0 +1,21 @@
+all:
+  children:
+    dbservers:
+      hosts:
+        one.example.com: 
+        three.example.com: 
+        two.example.com: 
+    prod:
+      children:
+        east:
+          hosts:
+    test:
+      children:
+        west:
+    ungrouped:
+      hosts:
+        mail.example.com: 
+    webservers:
+      hosts:
+        bar.example.com: 
+        foo.example.com: 
