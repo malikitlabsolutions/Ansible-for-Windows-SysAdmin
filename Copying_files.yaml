@@ -1,1 +1,11 @@
 
+lines (11 sloc)  274 Bytes
+---
+- name: ansible win_copy module demo
+  Hosts: all
+  Tasks:
+     - name: copying files Windows Host(s)
+       ansible.windows.win_copy:
+          src: c:\output.pdf
+          dest: c:\destination_folder\
+          remote_src: yes
