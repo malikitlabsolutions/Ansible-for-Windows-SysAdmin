@@ -2,9 +2,9 @@ all:
   children:
     dbservers:
       hosts:
-        one.example.com: 
-        three.example.com: 
-        two.example.com: 
+        db1.malikitlab.local: 
+        db2.malikitlab.local: 
+        db3.malikitlab.local: 
     prod:
       children:
         east:
@@ -14,8 +14,8 @@ all:
         west:
     ungrouped:
       hosts:
-        mail.example.com: 
+        mail.malikitlab.local: 
     webservers:
       hosts:
-        bar.example.com: 
-        foo.example.com: 
+        web1.malikitlab.local: 
+        web2.malikitlab.local: 
