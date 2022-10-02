@@ -1,0 +1,14 @@
+all:
+  children:
+    dbservers:
+      hosts:
+        db1.malikitlab.local: 
+        db2.malikitlab.local: 
+        db3.malikitlab.local: 
+    ungrouped:
+      hosts:
+        mail.malikitlab.local: 
+    webservers:
+      hosts:
+        web1.malikitlab.local: 
+        web2.malikitlab.local: 
