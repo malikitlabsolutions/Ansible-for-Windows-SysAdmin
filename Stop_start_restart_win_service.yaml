@@ -1,0 +1,12 @@
+---
+- hosts: win 
+
+  tasks: 
+
+   - name: Stop service Tomcat
+
+     win_service:
+
+       name: Tomcat8
+
+       state: stopped
