@@ -1,4 +1,6 @@
-Repository name: ansible playbook for Windows ssysadmin
+Repository name: ansible playbook for Windows sysadmin
+
 Created by: ENG.Malik.HALLI
-# ansible-for-windows
-Exemples for Ansible playbooks for windows sysadmin
+
+Contents:
+Exemples for Ansible playbooks for Microsoft Windows sysadmin
