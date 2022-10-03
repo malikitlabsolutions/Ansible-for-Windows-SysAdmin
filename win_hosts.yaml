@@ -1,0 +1,35 @@
+- name: Add 127.0.0.1 as an A record for localhost
+  win_hosts:
+    state: present
+    canonical_name: localhost
+    ip_address: 127.0.0.1
+
+- name: Add ::1 as an AAAA record for localhost
+  win_hosts:
+    state: present
+    canonical_name: localhost
+    ip_address: '::1'
+
+- name: Remove 'bar' and 'zed' from the list of aliases for foo (192.168.1.100)
+  win_hosts:
+    state: present
+    canonical_name: foo
+    ip_address: 192.168.1.100
+    action: remove
+    aliases:
+      - bar
+      - zed
+
+- name: Remove hosts entries with canonical name 'bar'
+  win_hosts:
+    state: absent
+    canonical_name: bar
+
+- name: Remove 10.2.0.1 from the list of hosts
+  win_hosts:
+    state: absent
+    ip_address: 10.2.0.1
+
+- name: Ensure all name resolution is handled by DNS
+  win_hosts:
+    state: absent
