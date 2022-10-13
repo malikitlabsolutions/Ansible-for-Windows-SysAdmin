@@ -1,0 +1,23 @@
+- name: Remove the default public source
+  win_chocolatey_source:
+    name: chocolatey
+    state: absent
+
+- name: Add new internal source
+  win_chocolatey_source:
+    name: internal repo
+    state: present
+    source: http://chocolatey-server/chocolatey
+
+- name: Create HTTP source with credentials
+  win_chocolatey_source:
+    name: internal repo
+    state: present
+    source: https://chocolatey-server/chocolatey
+    source_username: username
+    source_password: password
+
+- name: Disable Chocolatey source
+  win_chocolatey_source:
+    name: chocolatey
+    state: disabled
