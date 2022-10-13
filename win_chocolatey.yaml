@@ -1,0 +1,91 @@
+- name: Install git
+  win_chocolatey:
+    name: git
+    state: present
+
+- name: Upgrade installed packages
+  win_chocolatey:
+    name: all
+    state: latest
+
+- name: Install notepadplusplus version 6.6
+  win_chocolatey:
+    name: notepadplusplus
+    version: '6.6'
+
+- name: Install notepadplusplus 32 bit version
+  win_chocolatey:
+    name: notepadplusplus
+    architecture: x86
+
+- name: Install git from specified repository
+  win_chocolatey:
+    name: git
+    source: https://someserver/api/v2/
+
+- name: Install git from a pre configured source (win_chocolatey_source)
+  win_chocolatey:
+    name: git
+    source: internal_repo
+
+- name: Ensure Chocolatey itself is installed and use internal repo as source
+  win_chocolatey:
+    name: chocolatey
+    source: http://someserver/chocolatey
+
+- name: Uninstall git
+  win_chocolatey:
+    name: git
+    state: absent
+
+- name: Install multiple packages
+  win_chocolatey:
+    name:
+    - procexp
+    - putty
+    - windirstat
+    state: present
+
+- name: Install multiple packages sequentially
+  win_chocolatey:
+    name: '{{ item }}'
+    state: present
+  loop:
+  - procexp
+  - putty
+  - windirstat
+
+- name: Uninstall multiple packages
+  win_chocolatey:
+    name:
+    - procexp
+    - putty
+    - windirstat
+    state: absent
+
+- name: Install curl using proxy
+  win_chocolatey:
+    name: curl
+    proxy_url: http://proxy-server:8080/
+    proxy_username: joe
+    proxy_password: p@ssw0rd
+
+- name: Install a package that requires 'become'
+  win_chocolatey:
+    name: officepro2013
+  become: yes
+  become_user: Administrator
+  become_method: runas
+
+- name: install and pin Notepad++ at 7.6.3
+  win_chocolatey:
+    name: notepadplusplus
+    version: 7.6.3
+    pinned: yes
+    state: present
+
+- name: remove all pins for Notepad++ on all versions
+  win_chocolatey:
+    name: notepadplusplus
+    pinned: no
+    state: present
